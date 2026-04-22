@@ -1,0 +1,262 @@
+/* Base */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #111111;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+/* Links */
+a { color: #0033cc; }
+a:visited { color: #551a8b; }
+a:hover, a:focus { background-color: #ffffcc; }
+
+/* Layout container */
+.container {
+  width: 1000px;
+  max-width: 92%;
+  margin: 0 auto;
+}
+
+/* Header */
+.site-header {
+  background-color: #47cccc;
+  border-bottom: 1px solid #7b817b;
+  padding: 18px 0;
+}
+
+.header-inner {
+  width: 1000px;
+  max-width: 92%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.0em;
+}
+
+.tagline {
+  margin: 6px 0 0;
+  color: #333333;
+}
+
+/* Navigation */
+.site-nav {
+  background-color: #ccffcc;
+  border-bottom: 1px solid #7b817b;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.site-nav ul {
+  width: 1000px;
+  max-width: 92%;
+  margin: 0 auto;
+  padding: 8px 0;
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 8px;
+}
+
+.site-nav li { margin: 0; padding: 0; }
+
+.site-nav a {
+  display: inline-block;
+  padding: 6px 10px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  border-color: #66aa66;
+  background-color: #ffffcc;
+  text-decoration: underline;
+}
+
+/* Anchor jump offset fix */
+:root { --nav-offset: 120px; }
+
+main section { scroll-margin-top: var(--nav-offset); }
+
+main section:target {
+  outline: 2px solid #999999;
+  outline-offset: 6px;
+}
+
+/* Main content */
+main.container {
+  padding: 18px 0 24px;
+}
+
+.card {
+  margin: 18px 0;
+  padding: 14px 16px;
+  border: 1px solid #cccccc;
+  background-color: #fafafa;
+}
+
+/* Headings */
+.card h2 {
+  margin: 0 0 10px;
+  text-align: center; 
+  font-size: 1.6em;
+}
+.card h3 {
+  margin: 14px 0 6px;
+  font-size: 1.2em;
+}
+
+/* Text helpers */
+.muted { color: #444444; }
+.small { font-size: 0.95em; color: #333333; }
+
+.note {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid #dddddd;
+  background-color: #ffffe6;
+}
+
+/* two-column layout (Grid) */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.info-box {
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  padding: 10px 12px;
+}
+
+.info-box ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+/* Images */
+.media {
+  margin: 0 0 12px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #cccccc;
+}
+
+figcaption {
+  margin-top: 6px;
+  font-size: 0.95em;
+  color: #3c3c3c;
+}
+
+/* Lists */
+ul, ol { padding-left: 22px; }
+li { margin: 4px 0; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+caption {
+  text-align: left;
+  padding: 6px 0;
+  font-weight: bold;
+}
+
+th, td {
+  border: 1px solid #cccccc;
+  padding: 8px 10px;
+  vertical-align: top;
+  text-align: left;
+}
+
+thead th {
+  background-color: #e6e6e6;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #cccccc;
+  background-color: #e6e6e6;
+  padding: 14px 0 24px;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 860px) {
+  .two-col { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+
+  .site-nav ul {
+    justify-content: center;
+  }
+}
+
+/* Personal Information 3-column layout */
+#personal {
+    display: grid;
+    grid-template-columns: 260px 1fr 320px;
+    gap: 20px;
+    align-items: start;
+}
+
+#personal figure.media {
+    grid-column: 1;
+    margin: 0;
+}
+
+#personal .two-col > div {
+    grid-column: 2;
+}
+
+#personal aside.info-box {
+    grid-column: 3;
+}
+
+#personal .two-col {
+    display: contents;
+}
+
+#personal img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive: layout on smaller screens */
+@media screen and (max-width: 900px) {
+    #personal {
+        grid-template-columns: 1fr;
+    }
+
+    #personal figure.media,
+    #personal .two-col > div,
+    #personal aside.info-box {
+        grid-column: 1;
+    }
+}
